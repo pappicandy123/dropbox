@@ -12,6 +12,7 @@ body{
 
 .navbar{
     background-color: #F7FCFC;
+    
 }
 
 .nav a{
@@ -23,6 +24,8 @@ body{
 
 .nav-link{
     margin-left: 20px;
+    /* font-size: 10px;
+    font-weight: 800; */
 }
 
 .navbar-brand{
@@ -31,6 +34,9 @@ body{
 }
 #navbarSupportedContent .nav-link{
     color: black;
+    font-size: 15px;
+    font-weight: 800;
+    display: inline;
 }
 
 .hero{
@@ -55,6 +61,7 @@ body{
 .can{
     text-align: center;
 }
+
 
 .find{
     /* margin-top: 50px; */
@@ -250,6 +257,12 @@ body{
 .card-body .btn{
     padding: 2rem;
     width: 100%;
+    font-size: 15px;
+    font-weight: 800;
+    margin-right: 50px;
+}
+.card-body .btn i{
+    margin-left: 100px;
 }
 
 .use{
@@ -316,6 +329,7 @@ body{
     position: relative;
     transform: translateX(80%);
     padding: 1rem;
+    color: white;
  }
  .address input{
   padding: .7rem; 

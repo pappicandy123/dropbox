@@ -1,4 +1,5 @@
-<!doctype html>
+<!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -8,20 +9,20 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="{% static '' %}style.css">
 
     <title>Dropbox</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-          <img src="/img/dropbox.png" alt="" width="30px">
+          <img src="{% static '' %}img/dropbox.png" alt="" width="30px">
           <a class="navbar-brand ms-3" href="#">Dropbox</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 tem" >
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Why Dropbox?</a>
               </li>
@@ -34,11 +35,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Pricing</a>
               </li>
-             
-              
             </ul>
 
-            <ul class="nav justify-content-end">
+            <ul class="nav justify-content-end tem">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#">Contact</a>
                 </li>
@@ -46,24 +45,32 @@
                   <a class="nav-link" href="#">Get App</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Sign up</a>
+                  <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Login</a>
+                  <a class="nav-link" href="{% url 'login' %}">Login</a> 
                 </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link" href="{% url 'signout' %}">signout</a> 
+                </li> -->
                 <li class="nav-item">
                     <a href="" class="nav-link star"> Get Started  <i class="fa-solid fa-arrow-right"></i></a>
                 </li>
             </ul>
-            <!-- <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form> -->
           </div>
         </div>
     </nav>
      <!-- ------------ hero section-------- -->
     <div class="hero">
+      {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>{{message}}</strong> 
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+              
+            {% endif %}
         <h2 class="text">Join over 700 million registered</h2>
         <h2 class="text">users who trust Dropbox</h2>
 
@@ -73,7 +80,7 @@
             <a href="" class="find">Find My Plan     <i class="fa-solid fa-arrow-right"></i></a>
          </div>
         <div class="pic">
-            <img src="/img/dropbox img.jpg" alt="">
+            <img src="{% static '' %}img/dropbox img.jpg" alt="">
             <div class="word">
                 <h2 class="text">See what sets Dropbox apart</h2>
             </div>
@@ -85,25 +92,25 @@
             <div class="container">
                 <div class="card-list">
                     <div>
-                        <img src="/img/emoji smile.svg" alt="">
+                        <img src="{% static '' %}img/emoji smile.svg" alt="">
                         <p class="one">Your files, not ours</p>
                         <p>With Dropbox, your files belong to you, not us, so you can be sure we’re not reselling your data.</p>
                         
                     </div>
                     <div>
-                        <img src="/img/cloud done.svg" alt="">
+                        <img src="{% static '' %}img/cloud done.svg" alt="">
                         <p class="one">All your files in one place</p>
                         <p>Store computer backups, photo libraries, thousands of documents—all your files, in the same place.</p>
                        
                     </div>
                     <div>
-                        <img src="/img/twinkle.svg" alt="">
+                        <img src="{% static '' %}img/twinkle.svg" alt="">
                         <p class="one">One-of-a-kind functionality</p>
                         <p>Store files as large as 2 TB each, sync at light speed, and allow anyone to preview nearly 200 file types.</p>
                         
                     </div>
                     <div>
-                        <img src="/img/shield.svg" alt="">
+                        <img src="{% static '' %}img/shield.svg" alt="">
                         <p class="one">Ease of use and security</p>
                         <p>2/3 of surveyed users say Dropbox keeps their files more secure and we’re a leader in ease of use.</p>
                         
@@ -122,25 +129,25 @@
             <div class="container">
                 <div class="card-list2">
                     <div>
-                        <img src="/img/Dropbox.svg" alt="">
+                        <img src="{% static '' %}img/Dropbox.svg" alt="">
                         <p class="two">Dropbox</p>
                         <p>Securely store, organize, and share all your files.</p>
                         <a href="#">Learn more <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                     <div>
-                        <img src="/img/Sign.svg" alt="">
+                        <img src="{% static '' %}img/Sign.svg" alt="">
                         <p class="two">Sign</p>
                         <p>Streamline your document workflows with legally-binding eSignatures.</p>
                         <a href="#">Learn more  <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                     <div>
-                        <img src="/img/Docsend.svg" alt="">
+                        <img src="{% static '' %}img/Docsend.svg" alt="">
                         <p class="two">DocSend</p>
                         <p>Securely share your documents with real-time insights, so you know what's most impactful.</p>
                         <a href="#">Learn more <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                     <div>
-                        <img src="/img/Backup.svg" alt="">
+                        <img src="{% static '' %}img/Backup.svg" alt="">
                         <p class="two">Backup</p>
                         <p>Automatically back up important files on your devices to the cloud and easily restore them.</p>
                         <a href="#">Learn more <i class="fa-solid fa-arrow-right"></i></a>
@@ -148,25 +155,25 @@
                 </div>
                 <div class="card-list2">
                     <div>
-                        <img src="/img/Capture.svg" alt="">
+                        <img src="{% static '' %}img/Capture.svg" alt="">
                         <p class="two">Capture</p>
                         <p>Get your message across with screenshots, GIFs, or videos recorded right on your screen.</p>
                         <a href="#">Learn more <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                     <div>
-                        <img src="/img/Transfer.svg" alt="">
+                        <img src="{% static '' %}img/Transfer.svg" alt="">
                         <p class="two">Transfer</p>
                         <p>Quickly and securely deliver large files—up to 100 GB—to anyone.</p>
                         <a href="#">Learn more <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                     <div>
-                        <img src="/img/Paper.svg" alt="">
+                        <img src="{% static '' %}img/Paper.svg" alt="">
                         <p class="two">Paper</p>
                         <p>Create collaborative documents to coordinate work and drive projects forward.</p>
                         <a href="#">Learn more <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                     <div>
-                        <img src="/img/Passwords.svg" alt="">
+                        <img src="{% static '' %}img/Passwords.svg" alt="">
                         <p class="two">Passwords</p>
                         <p>Automatically store unlimited passwords in one central, secure place.</p>
                         <a href="#">Learn more <i class="fa-solid fa-arrow-right"></i></a>
@@ -224,7 +231,7 @@
           </div>
            <div class="accordion-item accordion-item--sac" width="50%">
              <div class="accordion-item__img-body">
-                 <img src="/img/img-acc 1.png" alt="" class="accordion-item__img" width="70%">
+                 <img src="{% static '' %}img/img-acc 1.png" alt="" class="accordion-item__img" width="70%">
              </div>
            </div>  
     </div>
@@ -237,22 +244,22 @@
         <div class="row d-flex tim">
             <div class="col-6 work">
                 <div class="man" >
-                    <img src="/img/for work.jpg" class="card-img-top" alt="...">
+                    <img src="{% static '' %}img/for work.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h2 class="card-title">For Work</h2>
                       <p class="card-text">Work efficiently with teammates and clients, stay in sync on projects, and keep company data safe—all in one place.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <a href="#" class="btn btn-primary">Get dropbox for work  <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                   </div>
             </div>
 
             <div class="col-6  use">
                 <div class="pick" >
-                    <img src="/img/for personal use.jpg" class="card-img-top" alt="...">
+                    <img src="{% static '' %}img/for personal use.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h2 class="card-title">For personal use</h2>
                       <p class="card-text">Keep everything that’s important to you and your family shareable and safe in one place. Back up files in the cloud, share photos and videos, and more.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <a href="#" class="btn btn-primary">Get dropbox for personal use  <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                   </div>
             </div>
@@ -268,25 +275,25 @@
         <div class="container">
             <div class="card-list2">
                 <div>
-                    <img src="/img/zoom.png" alt="">
+                    <img src="{% static '' %}img/zoom.png" alt="">
                     <p class="two">Zoom</p>
                     <p>Enhance remote collaboration with Zoom instant meetings and video recordings. </p>
                     
                 </div>
                 <div>
-                    <img src="/img/slack.png" alt="">
+                    <img src="{% static '' %}img/slack.png" alt="">
                     <p class="two">Slack</p>
                     <p>Bring Slack conversations and Dropbox content together to keep teams in sync.</p>
                     
                 </div>
                 <div>
-                    <img src="/img/adobe.png" alt="">
+                    <img src="{% static '' %}img/adobe.png" alt="">
                     <p class="two">Adobe Creative Cloud</p>
                     <p>Easily and securely send files to clients and vendors from within Adobe Photoshop.</p>
                     
                 </div>
                 <div>
-                    <img src="/img/micro.png" alt="">
+                    <img src="{% static '' %}img/micro.png" alt="">
                     <p class="two">Microsoft Office</p>
                     <p>Easily access, edit, and share Office docs online in Dropbox.</p>
                     
@@ -294,25 +301,25 @@
             </div>
             <div class="card-list2">
                 <div>
-                    <img src="/img/google.png" alt="">
+                    <img src="{% static '' %}img/google.png" alt="">
                     <p class="two">Google Workspace</p>
                     <p>Create, edit, and share Google Docs, Sheets, and Slides in Dropbox.</p>
                    
                 </div>
                 <div>
-                    <img src="/img/trello.png" alt="">
+                    <img src="{% static '' %}img/trello.png" alt="">
                     <p class="two">Trello</p>
                     <p>Collaborate on team projects in Trello with Dropbox content.</p>
                     
                 </div>
                 <div>
-                    <img src="/img/canvas.png" alt="">
+                    <img src="{% static '' %}img/canvas.png" alt="">
                     <p class="two">Canvas</p>
                     <p>Upload course files or assignments straight from Dropbox to Canvas.</p>
                     
                 </div>
                 <div>
-                    <img src="/img/asana.png" alt="">
+                    <img src="{% static '' %}img/asana.png" alt="">
                     <p class="two">Asana</p>
                     <p>Track all of your team’s work with Asana while keeping Dropbox content alongside.</p>
                    
@@ -334,7 +341,7 @@
       <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
         <div class="carousel-inner">
           <div class="carousel-item active  d-flex">
-            <img src="/img/back1.jpg" class="d-block" alt="..." width="50%">
+            <img src="{% static '' %}img/back1.jpg" class="d-block" alt="..." width="50%">
             <div class="back">
               <p>“Dropbox has been tremendously helpful for social media. I can hop on anytime and pull whatever photo is inspiring me to post.”</p>
               <a href="#">Read the full story</a>
